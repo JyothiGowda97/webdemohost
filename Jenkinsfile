@@ -7,5 +7,11 @@ pipeline {
                 sh "git clone https://github.com/basavarajmallad/webdemohost.git"
             }
         }
+           stage('build') {             
+            steps {
+                sh "cd webdemohost"
+                sh "mvn clean package"
+                  }
+        }
     }
 }
