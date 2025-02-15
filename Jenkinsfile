@@ -1,9 +1,9 @@
 pipeline {
     agent { label 'slave1' }
     stages {
-        stage('Example') {             
+        stage('Checkout') {             
             steps {
-                echo 'Hello World'
+                git clone https://github.com/basavarajmallad/webdemohost.git
             }
         }
     }
