@@ -1,5 +1,9 @@
 pipeline {
     agent { label 'slave1' }
+      parameters {
+        string(name: 'command1', description: 'give build the command'),
+        choice(choices: ['package', 'compile', 'install'],  name: 'command2'  )
+    }
     stages {
         stage('Checkout') {             
             steps {
@@ -10,7 +14,7 @@ pipeline {
            stage('build') {             
             steps {
                 sh "cd webdemohost"
-                sh "mvn clean package"
+                sh "mvn $command1 $command2"
                   }
         }
           stage('deploy') {             
