@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {             
             steps {
-                git clone https://github.com/basavarajmallad/webdemohost.git
+                sh "git clone https://github.com/basavarajmallad/webdemohost.git"
             }
         }
     }
