@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'slave1' }
       parameters {
-        string(name: 'command1', description: 'give build the command', default: 'clean')
+        string(name: 'command1', description: 'give build the command')
         choice(choices: ['package', 'compile', 'install'],  name: 'command2')
     }
     stages {
