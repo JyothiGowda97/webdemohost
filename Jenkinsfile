@@ -13,5 +13,10 @@ pipeline {
                 sh "mvn clean package"
                   }
         }
+          stage('deploy') {             
+            steps {
+                sh "scp target/*.war root@172.31.80.119:/opt/apache-tomcat-10.1.34/webapps/"              
+            }
+        }
     }
 }
