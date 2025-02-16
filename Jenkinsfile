@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'slave1' }
+    agent { label 'slave2' }
       parameters {
         string(name: 'command1', description: 'give build the command')
         choice(choices: ['package', 'compile', 'install'],  name: 'command2')
@@ -19,7 +19,7 @@ pipeline {
         }
           stage('deploy') {             
             steps {
-                sh "scp target/*.war root@172.31.80.119:/opt/apache-tomcat-10.1.34/webapps/"              
+                sh "scp target/*.war root@172.31.29.214:/opt/apache-tomcat-10.1.35/webapps/"              
             }
         }
     }
