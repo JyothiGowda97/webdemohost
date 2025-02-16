@@ -1,10 +1,6 @@
 pipeline {
     agent { label 'slave2' }
-      parameters {
-        string(name: 'command1', description: 'give build the command')
-        choice(choices: ['package', 'compile', 'install'],  name: 'command2')
-    }
-    stages {
+     stages {
         stage('Checkout') {             
             steps {
                 sh "rm -rf webdemohost"
@@ -14,12 +10,12 @@ pipeline {
            stage('build') {             
             steps {
                 sh "cd webdemohost"
-                sh "mvn $command1 $command2"
+                sh "mvn clean package"
                   }
         }
           stage('deploy') {             
             steps {
-                sh "scp target/*.war slave2@172.31.29.214:/opt/apache-tomcat-10.1.35/webapps/"              
+                sh "scp target/*.war root@172.31.29.214:/opt/apache-tomcat-10.1.35/webapps/"              
             }
         }
     }
