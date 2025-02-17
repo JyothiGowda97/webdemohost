@@ -15,7 +15,7 @@ pipeline {
         }
           stage('deploy') {             
             steps {
-                sh "scp target/*.war root@172.31.29.214:/opt/apache-tomcat-10.1.35/webapps/"              
+                sh "cp target/*.war /opt/apache-tomcat-10.1.35/webapps/"              
             }
         }
     }
