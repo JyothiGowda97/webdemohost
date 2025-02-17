@@ -16,7 +16,7 @@ pipeline {
           stage('deploy') {             
             steps {
                 sh "whoami"
-                sh "sudo cp target/*.war /opt/apache-tomcat-10.1.35/webapps/"              
+                sh "cp target/*.war /opt/apache-tomcat-10.1.35/webapps/"              
             }
         }
     }
