@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-               checkoutcode()
+               checkoutcode('hello_world')
             }
         }
         stage('build') {
