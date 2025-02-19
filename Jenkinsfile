@@ -12,7 +12,7 @@ pipeline {
             steps {
                //sh "cd webdemohost"
               // sh "mvn clean package"
-                buildproject()
+                buildproject('hello_World')
             }
         }
         stage('deploy') {
