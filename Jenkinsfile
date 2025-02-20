@@ -30,7 +30,7 @@ pipeline {
             
 withCredentials([string(credentialsId: 'jfrog_token', variable: 'JFROG_API_TOKEN')]) {
                         sh '''
-                        curl -L -u  "basavarajmallad@gmail.com:\${JFROG_API_TOKEN}" -O "https://trialkn4ife.jfrog.io/artifactory/hello-world-war-libs-release/com/efsavage/hello-world-war/3.1.1/hello-world-war-3.1.1.war"
+                        curl -L -u  "basavarajmallad@gmail.com:\${JFROG_API_TOKEN}" -O "basavaraj-1.0.0.war" "https://trialkn4ife.jfrog.io/artifactory/hello-world-war-libs-release/com/efsavage/hello-world-war/3.1.1/hello-world-war-3.1.1.war"
                         '''
 }
             }
@@ -40,7 +40,7 @@ withCredentials([string(credentialsId: 'jfrog_token', variable: 'JFROG_API_TOKEN
         stage('deploy') {
             steps {             
                 //sh "cp target/*.war /opt/apache-tomcat-10.1.35/webapps/"
-                sh "cp hello-world-war-3.1.1.war /opt/apache-tomcat-10.1.35/webapps/"
+                sh "cp basavaraj-1.0.0.war /opt/apache-tomcat-10.1.35/webapps/"
             }
         }
     }
