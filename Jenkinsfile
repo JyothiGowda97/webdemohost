@@ -27,8 +27,11 @@ pipeline {
 
            stage('download') {
             steps {             
-             curl -L -u "${JROGUSERNAME}:${JFROGTOKEN}" -O "https://trialkn4ife.jfrog.io/artifactory/hello-world-war-libs-release/com/efsavage/hello-world-war/3.1.1/hello-world-war-3.1.1.war"
-
+            
+withCredentials([string(credentialsId: 'jfrog_token', variable: 'JFROG_API_TOKEN')]) {
+                        sh """
+                        curl -u "basavarajmallad@gmail.com:\${JFROG_API_TOKEN}" -T "target/hello-world-war-1.0.0.war" "https://trialkn4ife.jfrog.io/artifactory/hello-world-war-libs-release/com/efsavage/hello-world-war/3.1.1/hello-world-war-3.1.1.war"
+                        """
             }
         }
         
