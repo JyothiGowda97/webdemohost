@@ -9,6 +9,7 @@ pipeline {
                checkoutcode('hello_world')
             }
         }
+        
         stage('build') {
             steps {
                //sh "cd webdemohost"
@@ -16,6 +17,14 @@ pipeline {
                 buildproject('hello_World')
             }
         }
+        stage('publish') {
+            steps {
+               //sh "cd webdemohost"
+               sh "mvn clean deploy"
+               // buildproject('hello_World')
+            }
+        }
+        
         stage('deploy') {
             steps {             
                 sh "cp target/*.war /opt/apache-tomcat-10.1.35/webapps/"
