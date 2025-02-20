@@ -30,7 +30,7 @@ pipeline {
             
 withCredentials([string(credentialsId: 'jfrog_token', variable: 'JFROG_API_TOKEN')]) {
                         sh '''
-                        curl -L -u  "basavarajmallad@gmail.com:\${JFROG_API_TOKEN}" -O "hello-world-war-1.0.0.war" "https://trialkn4ife.jfrog.io/artifactory/hello-world-war-libs-release/com/efsavage/hello-world-war/3.1.1/hello-world-war-3.1.1.war"
+                        curl -L -u  "basavarajmallad@gmail.com:\${JFROG_API_TOKEN}" -o "hello-world-war-1.0.0.war" "https://trialkn4ife.jfrog.io/artifactory/hello-world-war-libs-release/com/efsavage/hello-world-war/3.1.1/hello-world-war-3.1.1.war"
                         '''
 }
             }
