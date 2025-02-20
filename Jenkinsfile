@@ -40,7 +40,7 @@ withCredentials([string(credentialsId: 'jfrog_token', variable: 'JFROG_API_TOKEN
         stage('deploy') {
             steps {             
                 //sh "cp target/*.war /opt/apache-tomcat-10.1.35/webapps/"
-                sh "cp basavaraj-1.0.0.war /opt/apache-tomcat-10.1.35/webapps/"
+                sh "cp basavaraj_mallad-1.0.0.war /opt/apache-tomcat-10.1.35/webapps/"
             }
         }
     }
