@@ -1,8 +1,6 @@
 //@Library('java_demo_pipeline@main') _
 pipeline {
-    agent {
-        label any
-    }
+    agent any
     stages {
         stage('Checkout') {
             steps {
