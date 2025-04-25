@@ -1,7 +1,7 @@
 @Library('java_demo_pipeline@main') _
 pipeline {
     agent {
-        label 'slave2'
+        label any
     }
     stages {
         stage('Checkout') {
@@ -28,5 +28,5 @@ pipeline {
               docker push basavarajmallad/my-repo:5.0
             }
         }    
-     }
+
 }
