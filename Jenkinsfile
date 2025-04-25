@@ -28,5 +28,5 @@ pipeline {
               sh "docker push basavarajmallad/my-repo:5.0"
             }
         }    
-
+    }
 }
