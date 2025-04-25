@@ -24,7 +24,7 @@ pipeline {
                // buildproject('hello_World')
               sh "docker tag hello-world:4.0 basavarajmallad/my-repo:6.0"
               sh "docker login -u basavarajmallad -p @4372GbasuM"
-              sh "docker push basavarajmallad/my-repo:5.0"
+              sh "docker push basavarajmallad/my-repo:7.0"
               sh "docker system prune -af"
             }
         }  
@@ -32,7 +32,7 @@ pipeline {
         stage('pullimage')
         {
             steps {
-                sh "docker pull basavarajmallad/my-repo:6.0"
+                sh "docker pull basavarajmallad/my-repo:7.0"
             }
         }
         stage('run')
