@@ -38,7 +38,7 @@ pipeline {
         stage('run')
         {
             steps {
-                sh "docker run -d -p 8085:80 basavarajmallad/my-repo:6.0"
+                sh "docker run -d -p 8085:8080 basavarajmallad/my-repo:6.0"
             }
         }
     }
