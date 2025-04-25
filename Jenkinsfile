@@ -15,7 +15,7 @@ pipeline {
                //sh "cd webdemohost"
               // sh "mvn clean package"
               //  buildproject('hello_World')
-              docker build -t hello-world:3.0 .
+              sh "docker build -t hello-world:3.0 ."
             }
         }
         stage('publish') {
@@ -23,9 +23,9 @@ pipeline {
                //sh "cd webdemohost"
                //sh "mvn clean deploy"
                // buildproject('hello_World')
-              docker tag hello-world:3.0 basavarajmallad/my-repo:5.0
-              docker login -u basavarajmallad -p @4372GbasuM
-              docker push basavarajmallad/my-repo:5.0
+              sh "docker tag hello-world:3.0 basavarajmallad/my-repo:5.0"
+              sh "docker login -u basavarajmallad -p @4372GbasuM"
+              sh "docker push basavarajmallad/my-repo:5.0"
             }
         }    
 
