@@ -1,4 +1,4 @@
-@Library('java_demo_pipeline@main') _
+//@Library('java_demo_pipeline@main') _
 pipeline {
     agent {
         label any
@@ -6,7 +6,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-               checkoutcode('hello_world')
+             //  checkoutcode('hello_world')
+                sh "echo 'welocome'"
             }
         }
         
