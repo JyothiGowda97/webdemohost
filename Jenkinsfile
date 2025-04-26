@@ -8,11 +8,9 @@ pipeline {
 
         stage('pull Docker Image') {
             steps {
-                script {
-                   // dockerImage = docker.build("${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${VERSION_NAME}")
-		//	 sh "docker build -t helloworld:4.0 ."
+                script {                
 			sh "docker pull basavarajmallad/my-repo:2.0"
-			sh "echo 'pull mallad hi"
+			
                 }
             }
         }
