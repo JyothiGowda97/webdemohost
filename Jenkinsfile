@@ -20,7 +20,7 @@ pipeline {
         stage('Run Container') {
             steps {
                 script {
-                   sh "docker run -d  -p 8080:8080 basavarajmallad/my-repo:2.0"
+                   sh "docker run -d  -p 8090:8080 basavarajmallad/my-repo:2.0"
                 }
             }
         }
