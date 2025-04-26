@@ -25,7 +25,7 @@ pipeline {
               sh "docker tag hello-world:4.0 basavarajmallad/my-repo:6.0"
               sh "docker login -u basavarajmallad -p @4372GbasuM"
               sh "docker push basavarajmallad/my-repo:7.0"
-              sh "docker system prune -af"
+              //sh "docker system prune -af"
             }
         }  
 
@@ -38,7 +38,7 @@ pipeline {
         stage('run')
         {
             steps {
-                sh "docker run -d -p 8085:8080 basavarajmallad/my-repo:6.0"
+                sh "docker run -d -p 8085:8080 basavarajmallad/my-repo:7.0"
             }
         }
     }
