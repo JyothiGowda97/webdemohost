@@ -1,44 +1,36 @@
-//@Library('java_demo_pipeline@main') _
 pipeline {
     agent any
+
+    environment {
+        DOCKERHUB_CREDENTIALS = 'dockerhub-creds-id' // Replace with your Jenkins credentials ID
+        DOCKERHUB_USERNAME = 'basavarajmallad'
+        IMAGE_NAME = 'Helloword'
+		VERSION_NAME ='1.0'
+    }
+
     stages {
         stage('Checkout') {
             steps {
-             //  checkoutcode('hello_world')
-                sh "echo 'welocome'"
+                checkout scm
             }
         }
-        
-        stage('build') {
-            steps {
-               //sh "cd webdemohost"
-              // sh "mvn clean package"
-              //  buildproject('hello_World')
-              sh "docker build -t hello-world:4.0 ."
-            }
-        }
-        stage('publish') {
-            steps {
-               //sh "cd webdemohost"
-               //sh "mvn clean deploy"
-               // buildproject('hello_World')
-              sh "docker tag hello-world:4.0 basavarajmallad/my-repo:7.0"
-              sh "docker login -u basavarajmallad -p @4372GbasuM"
-              sh "docker push basavarajmallad/my-repo:7.0"
-              //sh "docker system prune -af"
-            }
-        }  
 
-        stage('pullimage')
-        {
+        stage('Build Docker Image') {
             steps {
-                sh "docker pull basavarajmallad/my-repo:7.0"
+                script {
+                    dockerImage = docker.build("${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${VERSION_NAME}")
+                }
             }
         }
-        stage('run')
-        {
+
+
+
+        stage('Run Container') {
             steps {
-                sh "docker run -d -p 8085:8080 basavarajmallad/my-repo:7.0"
+                script {
+                    sh "docker rm -f ${IMAGE_NAME} || true"
+                    sh "docker run -d --name ${IMAGE_NAME} -p 8080:8080 ${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${VERSION_NAME}"
+                }
             }
         }
     }
