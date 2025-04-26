@@ -20,9 +20,7 @@ pipeline {
         stage('Run Container') {
             steps {
                 script {
-                   // sh "docker rm -f ${IMAGE_NAME} || true"
-                  //  sh "docker run -d --name ${IMAGE_NAME} -p 8080:8080 ${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${VERSION_NAME}"
-			sh "docker run -d  -p 8080:8080 basavarajmallad/my-repo:2.0"
+                   sh "docker run -d  -p 8080:8080 basavarajmallad/my-repo:2.0"
                 }
             }
         }
