@@ -22,7 +22,7 @@ pipeline {
                //sh "cd webdemohost"
                //sh "mvn clean deploy"
                // buildproject('hello_World')
-              sh "docker tag hello-world:4.0 basavarajmallad/my-repo:6.0"
+              sh "docker tag hello-world:4.0 basavarajmallad/my-repo:7.0"
               sh "docker login -u basavarajmallad -p @4372GbasuM"
               sh "docker push basavarajmallad/my-repo:7.0"
               //sh "docker system prune -af"
