@@ -1,27 +1,14 @@
 pipeline {
     agent any
-
-
-
     stages {
-    
-
-        stage('pull Docker Image') {
+        stage('pull') {
             steps {
-                script {                
-			sh "docker pull basavarajmallad/my-repo:2.0"
-			
-                }
+              sh "docker pull jyothi3497/helloworld:1.0"
             }
         }
-
-
-
-        stage('Run Container') {
+        stage('run') {
             steps {
-                script {
-                   sh "docker run -d  -p 8090:8080 basavarajmallad/my-repo:2.0"
-                }
+              sh "docker run -d --name hello-world1 -p 8090:8080 jyothi3497/helloworld:1.0"
             }
         }
     }
